@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :comments
-  devise_for :users
+  resources :url
   resources :links do
     member do
       put "like",    to: "links#upvote"
@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
-  root 'links#index'
+root 'welcome#index'
+
+devise_for :user
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
